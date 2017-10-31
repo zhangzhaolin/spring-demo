@@ -10,16 +10,18 @@ public class KnightMain {
 
     public static void main(String[] args) throws Exception{
         // 基于xml的配置
+        // 加载Spring应用上下文
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("com/springinaction/knights/knights.xml");
-
-        Knights knights = context.getBean(Knights.class);
-        knights.embarkOnQuest();
+        // 获取knight bean
+        Knight knight = context.getBean(Knight.class);
+        // 使用knight
+        knight.embarkOnQuest();
         context.close();
 
         // 基于java的配置
         AnnotationConfigApplicationContext annotation = new AnnotationConfigApplicationContext(KnightConfig.class);
-        Knights knights1 = annotation.getBean(Knights.class);
-        knights1.embarkOnQuest();
+        Knight knight1 = annotation.getBean(Knight.class);
+        knight1.embarkOnQuest();
         annotation.close();
     }
 }

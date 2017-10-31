@@ -11,6 +11,7 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 
     <!-- 注入SlayDragonQuest bean -->
     <bean id="quest" class="com.springinaction.knights.SlayDragonQuest">
+        <!-- Spring表达式语言 SEL -->
         <constructor-arg value="#{T(System).out}"/>
     </bean>
 

@@ -3,10 +3,10 @@ package com.springinaction.knights;
 /**
  * @author shiwa
  */
-public interface Knights {
+public interface Knight {
 
     /**
-     *  骑士从事XX请求
+     *  骑士从事XX探险任务
      */
     void embarkOnQuest();
 }

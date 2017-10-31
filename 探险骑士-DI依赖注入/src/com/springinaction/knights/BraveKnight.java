@@ -4,7 +4,7 @@ package com.springinaction.knights;
  * @author shiwa
  * 勇敢骑士
  */
-public class BraveKnight implements Knights {
+public class BraveKnight implements Knight {
 
     private Quest quest;
 

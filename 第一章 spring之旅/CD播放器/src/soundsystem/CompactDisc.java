@@ -2,7 +2,7 @@ package soundsystem;
 
 /**
  * @author shiwa
- * CD
+ * CD 压缩碟片
  */
 public interface CompactDisc {
 

@@ -12,5 +12,5 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan(basePackageClasses = CdPlayerTest.class)
 public class CDPlayerConfig {
-    
+
 }

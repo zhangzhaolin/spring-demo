@@ -10,6 +10,8 @@ import static org.junit.Assert.assertNotNull;
 
 /**
  * @author shiwa
+ * SpringJUnit4ClassRunner 在测试开始的时候自动创建spring上下文
+ * [@ContextConfiguration] 告诉需要在CDPlayerConfig中加载配置
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)

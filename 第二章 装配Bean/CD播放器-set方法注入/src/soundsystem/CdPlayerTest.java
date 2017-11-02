@@ -18,7 +18,8 @@ import static org.junit.Assert.assertNotNull;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = CDPlayerConfig.class)
+// @ContextConfiguration(classes = CDPlayerConfig.class)
+@ContextConfiguration(locations = "classpath:spring-config.xml")
 public class CdPlayerTest {
 
     @Rule

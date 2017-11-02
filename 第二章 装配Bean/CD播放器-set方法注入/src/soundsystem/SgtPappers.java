@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
  * bean的默认id是sgtPeppers
  * [@Component("lonelyHeartsClub")] 表示将这个bean标识为lonelyHeartsClub
  *
+ * SgtPappers 《佩珀军士寂寞之心俱乐部》
  */
 
 @Component("lonelyHeartsClub")

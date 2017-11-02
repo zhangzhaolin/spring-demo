@@ -1,7 +1,7 @@
 package soundsystem;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.stereotype.Component;
 
 /**
  * @author shiwa
@@ -27,7 +27,7 @@ public class CdPlayer implements MediaPlayer{
     }
 
     @Autowired
-    public void setCd(CompactDisc cd) {
+    public void setCompactDisc(CompactDisc cd) {
         this.cd = cd;
     }
 

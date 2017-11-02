@@ -10,29 +10,24 @@ package soundsystem;
 @Component
 public class CdPlayer implements MediaPlayer{
 
-    private CompactDisc cd;
-
-    @Autowired(required = false)
-    public CdPlayer(CompactDisc cd){
-        this.cd = cd;
-    }
+    private CompactDisc compactDisc;
 
     @Override
     public void play(){
-        cd.play();
+        compactDisc.play();
     }
 
-    public CompactDisc getCd() {
-        return cd;
-    }
-
-    @Autowired
-    public void setCompactDisc(CompactDisc cd) {
-        this.cd = cd;
+    public CompactDisc getCompactDisc() {
+        return compactDisc;
     }
 
     @Autowired
-    public void insertDisc(CompactDisc cd){
-        this.cd = cd;
+    public void setCompactDisc(CompactDisc compactDisc) {
+        this.compactDisc = compactDisc;
+    }
+
+    @Autowired
+    public void insertDisc(CompactDisc compactDisc){
+        this.compactDisc = compactDisc;
     }
 }

@@ -1,10 +1,10 @@
-package com.springinaction.knights;
+package com.springinaction.quest;
 
 /**
  * @author shiwa
  * 拯救少女请求
  */
-public class RescueDamselQuest implements Quest{
+public class RescueDamselQuest implements Quest {
 
     @Override
     public void embark() {

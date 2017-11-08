@@ -1,5 +1,7 @@
 package com.springinaction.knights;
 
+import com.springinaction.quest.RescueDamselQuest;
+
 /**
  * @author shiwa
  *
@@ -13,7 +15,7 @@ public class BraveKnight implements Knight {
 
 
     public BraveKnight(){
-        this.quest = quest;
+        this.quest = new RescueDamselQuest();
     }
 
     @Override

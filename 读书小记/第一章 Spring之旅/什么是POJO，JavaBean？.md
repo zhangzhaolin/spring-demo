@@ -10,9 +10,10 @@ JavaBean：
 - 有按照命名规范的set和gett，is（可以用于访问布尔类型的属性）方法
 
 ## pojo
-> 点击链接：[java对象 POJO和JavaBean的区别](http://www.jianshu.com/p/224489dfdec8)
-点击链接：[Difference between DTO, VO, POJO, JavaBeans?](https://stackoverflow.com/questions/1612334/difference-between-dto-vo-pojo-javabeans)
-点击链接：[维基百科：Plain old Java object](https://en.wikipedia.org/wiki/Plain_old_Java_object)
+
+- 点击链接：[java对象 POJO和JavaBean的区别](http://www.jianshu.com/p/224489dfdec8)
+- 点击链接：[Difference between DTO, VO, POJO, JavaBeans?](https://stackoverflow.com/questions/1612334/difference-between-dto-vo-pojo-javabeans)
+- 点击链接：[维基百科：Plain old Java object](https://en.wikipedia.org/wiki/Plain_old_Java_object)
 
 POJO的创始人([martinfowler](https://www.martinfowler.com/bliki/POJO.html))博客：
 > The term was coined while Rebecca Parsons, Josh MacKenzie and I were preparing for a talk at a conference in September 2000. In the talk we were pointing out the many benefits of encoding business logic into regular java objects rather than using Entity Beans. We wondered why people were so against using regular objects in their systems and concluded that it was because simple objects lacked a fancy name. So we gave them one, and it's caught on very nicely.

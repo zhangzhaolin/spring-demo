@@ -1,22 +1,25 @@
-﻿第一章  Spring之旅
+第一章  Spring之旅
 --
 总结
 ==
 
 前言
 ==
+
 在诞生之初，创建spring的主要目的就是用来**替代更加基重量级的企业级Java技术**，尤其是EJB,相对于EJB，Spring提供了更加轻量级和简单的编程模型。
+
 为降低java开发的复杂性，spring采取的四种策略
 ==
-为了降低Java开发的复杂性，Spring采取了以下4种关键策略：
 
 - 基于[POJO](http://www.jianshu.com/p/6f3e2bd50cb1)的轻量级和最小侵入性编程
 - 通过[依赖注入](http://www.jianshu.com/p/9ea1a9bce19f)和面向接口实现松耦合
 - 基于切面和管理进行声明式编程
 - 通过切面和模板减少样板式代码
+- 
 什么是最小侵入性编程？
 ==
-一些框架要求继承他们提供的类或实现他们的接口儿导致应用和框架绑死，这是侵入性编程。而具有最小侵入性编程的框架不会强迫这些，最坏的情况是需要使用注解。
+
+一些框架要求继承他们提供的类或现他们的接口儿导致应用和框架绑死，这是侵入性编程。而具有最小侵入性编程的框架不会强迫这些，最坏的情况是需要使用注解。
 ```
 public class HelloWorld{
     public void sayHello(){
@@ -25,10 +28,11 @@ public class HelloWorld{
 }
 ```
 这是一个非常简单的Java类（POJO），Spring赋予POJO魔力的方式之一就是**通过DI（依赖注入）来装配他们，帮助应用对象之间保持低耦合**。
+
 一个简单的勇者骑士类
 ==
-BraveKnight.class
 
+BraveKnight.class
 ```
 public class BraveKnight implements Knight {
    

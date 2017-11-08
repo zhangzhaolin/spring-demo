@@ -1,6 +1,6 @@
 ﻿# 什么是POJO，JavaBean？
 
-总结：
+## 总结：
 POJO：
 一个简单的Java类，这个类没有实现/继承任何特殊的java接口或者类，不遵循任何主要java模型，约定或者框架的java对象。在理想情况下，POJO不应该有注解。
 JavaBean：

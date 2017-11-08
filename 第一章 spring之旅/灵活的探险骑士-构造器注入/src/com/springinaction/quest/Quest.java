@@ -1,10 +1,12 @@
-package com.springinaction.knights;
+package com.springinaction.quest;
 
 /**
  * @author shiwa
- * 请求
  */
 public interface Quest {
 
+    /**
+     *  请求
+     */
     void embark();
 }

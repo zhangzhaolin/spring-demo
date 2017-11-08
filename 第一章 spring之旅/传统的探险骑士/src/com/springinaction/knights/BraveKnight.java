@@ -13,7 +13,6 @@ public class BraveKnight implements Knight {
      */
     private RescueDamselQuest quest;
 
-
     public BraveKnight(){
         this.quest = new RescueDamselQuest();
     }

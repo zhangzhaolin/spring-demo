@@ -172,7 +172,7 @@ public class KnightMain {
     public static void main(String []args){
         // 通过xml的方式 加载spring上下文
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("com/springinaction/knights.xml");
-        // 获取 knight bea
+        // 获取 knight bean
         Knight knight = context.getBean(Knight.class);
         knight.embarkOnQuest();
         context.close();
@@ -180,8 +180,12 @@ public class KnightMain {
 }
 ```
 
-Spring通过应用上下文（Application Context）装配bean的定义并把它们组装起来，Spring应用上下文全权负责对象的创建和组装，Spring自带了多种应用上下文的实现，它们之间主要的区别仅仅在于**如何加载配置**
+Spring通过**应用上下文（Application Context）**装配bean的定义并把它们组装起来，Spring应用上下文全权负责对象的创建和组装，Spring自带了多种应用上下文的实现，它们之间主要的区别仅仅在于**如何加载配置**
 
+`KnightMain.class`过程：
+1. 基于knights.xml创建Spring应用上下文
+2. 调用应用上下文获取一个ID为knight的bean
+3. 简单调用`embarkOnQuest()`方法执行探险任务
 
 构造器注入：基于Java文件
 ==
@@ -189,7 +193,6 @@ Spring通过应用上下文（Application Context）装配bean的定义并把它
 Spring还支持基于Java的配置：
 
 KnightConfig.class
-
 ```
 @Configuration
 public class KnightConfig {
@@ -207,7 +210,38 @@ public class KnightConfig {
     }
 }
 ```
+KnightMain.class
+```
+public class KnightMain {
+    public static void main(String []args){
+        // 通过java配置的方式 加载spring上下文
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(KnightConfig.class);
+        // 获取 knight bean
+        Knight knight = context.getBean(Knight.class);
+        knight.embarkOnQuest();
+        context.close();
+    }
+}
+```
 
+基于切面进行声明式编程
+==
+
+DI（依赖注入）可以让**互相协作的软件保持松散耦合**，而面向切面编程（AOP）允许你**把遍布应用各处的功能分离出来形成可重用的组件**。
+
+**横切关注点**：除了实现自身核心功能之外，一些组件还经常承担着额外的职责，诸如日志、事务管理和安全这样的系统服务经常融入到自身具有核心业务逻辑的组件中去，这些系统服务通常被称为横向关注点。
+
+如果将这些关注点分散到多个组件中，代码将会带来双重复杂性：
+
+- 实现系统关注点功能的代码将会分散到多个组件中去；即使把关注点抽象成独立的模块，其他模块仍然需要调用其方法。
+- 组件会因为那些与自身核心业务无关的代码而变得混乱。例如一个向地址簿增加地址条目的方法不应该关注它是否是安全的或者是否支持事务。
+
+
+AOP能够使这些服务模块化（比如说课程服务、学生服务...），并以声明的方式将横切关注点（例如日志模块、安全模块、事务管理模块...）应用到它们需要影响的组件中去。所造成的结果就是这些组件**会具有更高的内聚性**并且**会更加关注自身的业务**，完全不需要了解涉及系统服务
+
+
+AOP应用
+==
 
 
 

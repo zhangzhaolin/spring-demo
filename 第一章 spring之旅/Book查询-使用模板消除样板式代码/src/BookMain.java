@@ -10,6 +10,7 @@ public class BookMain {
     public static void main(String []args){
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         JdbcTemplate jdbcTemplate =  context.getBean(JdbcTemplate.class);
+
         BookJdbcTemplate template = new BookJdbcTemplate();
 
         try {

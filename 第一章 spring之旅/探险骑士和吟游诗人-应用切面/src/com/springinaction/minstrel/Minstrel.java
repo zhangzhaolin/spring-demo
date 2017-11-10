@@ -20,6 +20,9 @@ public class Minstrel {
         printStream.println("探险之前调用.");
     }
 
+    /**
+     *  探险之后调用
+     */
     public void singAfterQuest(){
         printStream.println("探险之后调用.");
     }

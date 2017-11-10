@@ -27,7 +27,7 @@
         <aop:aspect ref="minstrel">
 
             <!-- 定义切点 -->
-            <aop:pointcut id="embark" expression="execution(* *.embarkOnQuest(..))"/>
+            <aop:pointcut id="embark" expression="execution(* *.embarkOnQuest())"/>
 
             <aop:before method="singBeforeQuest" pointcut-ref="embark"/>
 

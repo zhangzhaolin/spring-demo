@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans">
+
+    <bean id="sgtPeppers" class="soundsystem.compactdisc.SgtPeppers"/>
+
+    <bean id="cdPlayer" class="soundsystem.mediaplayer.CDPlayer">
+        <constructor-arg ref="sgtPeppers"/>
+    </bean>
+
+</beans>

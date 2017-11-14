@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import soundsystem.compactdisc.CompactDisc;
-import soundsystem.config.CDPlayerConfig;
 import soundsystem.mediaplayer.MediaPlayer;
 
 import static org.junit.Assert.assertEquals;

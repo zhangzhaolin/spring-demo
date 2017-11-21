@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import soundsystem.compactdisc.CompactDisc;
-import soundsystem.config.SoundSystemConfig;
 import soundsystem.mediaplayer.MediaPlayer;
 
 import static org.junit.Assert.assertEquals;
@@ -19,7 +18,7 @@ import static org.junit.Assert.assertNotNull;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = SoundSystemConfig.class)
+@ContextConfiguration(locations = "classpath:spring-context.xml")
 public class CDPlayerTest {
 
     @Rule

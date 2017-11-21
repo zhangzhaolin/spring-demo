@@ -9,12 +9,12 @@
 		<constructor-arg value="Sgt. Pepper's Lonely Hearts Club Band"/>
 		<constructor-arg value="The Beatles"/>
 		<constructor-arg>
-			<list>
+			<set>
 				<value>track1</value>
 				<value>track2</value>
 				<value>track3</value>
 				<value>track4</value>
-			</list>
+			</set>
 		</constructor-arg>
 	</bean>
 </beans>

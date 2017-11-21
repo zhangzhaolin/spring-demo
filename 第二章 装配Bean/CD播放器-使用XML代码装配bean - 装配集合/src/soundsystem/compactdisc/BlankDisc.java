@@ -1,6 +1,7 @@
 package soundsystem.compactdisc;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author shiwa
@@ -12,9 +13,9 @@ public class BlankDisc implements CompactDisc {
     /**
      *  磁道
      */
-    private List<String> tracks;
+    private Set<String> tracks;
 
-    public BlankDisc(String title, String artist, List<String> tracks) {
+    public BlankDisc(String title, String artist, Set<String> tracks) {
         this.title = title;
         this.artist = artist;
         this.tracks = tracks;

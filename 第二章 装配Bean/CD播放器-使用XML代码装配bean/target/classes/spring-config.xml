@@ -19,4 +19,5 @@
 	<!--</bean>-->
 
 	<bean id="blankDisc" class="soundsystem.compactdisc.BlankDisc" c:_0="Sgt. Pepper's Lonely Hearts Club Band" c:_1="The Beatles"/>
+
 </beans>

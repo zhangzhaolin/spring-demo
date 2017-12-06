@@ -1,4 +1,4 @@
-
+package main.example;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
@@ -12,11 +12,11 @@ import javax.sql.DataSource;
  * @author shiwa
  */
 
-@Component()
+@Component
 @Profile(value = "dev")
 public class DevelopmentProfileConfig {
 
-    @Bean(name = "demoDataSource")
+    @Bean
     public DataSource dataSource(){
         return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)

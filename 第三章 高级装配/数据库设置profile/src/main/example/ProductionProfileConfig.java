@@ -1,3 +1,5 @@
+package main.example;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
@@ -14,7 +16,7 @@ import javax.sql.DataSource;
 @Profile(value = "prod")
 public class ProductionProfileConfig {
 
-    @Bean(name = "demoDataSource")
+    @Bean
     public DataSource dataSource(){
         return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)

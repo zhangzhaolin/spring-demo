@@ -1,5 +1,4 @@
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.test.context.ActiveProfiles;
 
 /**
  * @author shiwa

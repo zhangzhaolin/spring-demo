@@ -2,6 +2,8 @@ package main.java.machine;
 
 import main.java.dessert.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,15 +13,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class DessertMachine implements Machine {
 
-    @Autowired
     private Dessert dessert;
 
     @Autowired
+    @Qualifier("iceCream")
     public void setDessert(Dessert dessert){
         this.dessert = dessert;
     }
 
-    @Autowired
     public void play(){
         dessert.play();
     }

@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class DessertMachine implements Machine {
 
-    @Autowired
     private Dessert dessert;
 
     @Autowired
@@ -19,7 +18,6 @@ public class DessertMachine implements Machine {
         this.dessert = dessert;
     }
 
-    @Autowired
     public void play(){
         dessert.play();
     }

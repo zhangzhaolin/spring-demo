@@ -1,7 +1,8 @@
 package main.java.dessert;
+
 import main.java.inter.Cold;
 import main.java.inter.Creamy;
-import org.springframework.context.annotation.Primary;
+import main.java.inter.Fruit;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,10 +11,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Cold
-@Creamy
-public class IceCream implements Dessert {
-
+@Fruit
+public class Popsicle implements Dessert {
     public void play() {
-        System.out.println("这是 IceCream");
+        System.out.println("这是 水果冰棒");
     }
 }

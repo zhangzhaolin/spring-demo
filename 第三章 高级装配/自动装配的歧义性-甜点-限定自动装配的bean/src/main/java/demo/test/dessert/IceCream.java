@@ -1,11 +1,11 @@
-package main.java.dessert;
-import main.java.inter.Cold;
-import main.java.inter.Creamy;
-import org.springframework.context.annotation.Primary;
+package demo.test.dessert;
+
+import demo.test.inter.*;
 import org.springframework.stereotype.Component;
 
 /**
  * @author shiwa
+ * 冰淇淋 类
  */
 
 @Component

@@ -1,4 +1,4 @@
-package main.java.inter;
+package demo.test.inter;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 

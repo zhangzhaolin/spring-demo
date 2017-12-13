@@ -1,4 +1,4 @@
-package main.java.dessert;
+package demo.test.dessert;
 
 import org.springframework.stereotype.Component;
 
@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public class Cookie implements Dessert {
+public class Cake implements Dessert {
 
     public void play() {
-        System.out.println("这是 cookie");
+        System.out.println("这是 cake");
     }
 }

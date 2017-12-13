@@ -1,4 +1,4 @@
-package main.java.machine;
+package demo.test.machine;
 
 /**
  * @author shiwa

@@ -1,11 +1,10 @@
-package main.java.machine;
+package demo.test.machine;
 
-import main.java.dessert.*;
-import main.java.inter.Cold;
-import main.java.inter.Fruit;
+import demo.test.dessert.Dessert;
+import demo.test.inter.Cold;
+import demo.test.inter.Fruit;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
+
 import org.springframework.stereotype.Component;
 
 /**

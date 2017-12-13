@@ -1,4 +1,4 @@
-package main.java.inter;
+package demo.test.inter;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -11,9 +11,8 @@ import java.lang.annotation.Target;
  * @author shiwa
  */
 
-@Target({ElementType.METHOD,ElementType.TYPE})
+@Target({ElementType.TYPE,ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Qualifier
-public @interface Fruit {
-
+public @interface Creamy {
 }

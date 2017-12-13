@@ -1,12 +1,13 @@
-package main.java.dessert;
+package demo.test.dessert;
 
-import main.java.inter.Cold;
-import main.java.inter.Creamy;
-import main.java.inter.Fruit;
+
+import demo.test.inter.Cold;
+import demo.test.inter.Fruit;
 import org.springframework.stereotype.Component;
 
 /**
  * @author shiwa
+ * 水果冰棒 类
  */
 
 @Component

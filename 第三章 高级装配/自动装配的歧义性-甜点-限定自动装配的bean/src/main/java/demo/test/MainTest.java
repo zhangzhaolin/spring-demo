@@ -1,8 +1,7 @@
-package main.java;
+package demo.test;
 
-import main.java.config.ComponentConfig;
-import main.java.dessert.Dessert;
-import main.java.machine.DessertMachine;
+import demo.test.config.ComponentConfig;
+import demo.test.machine.DessertMachine;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

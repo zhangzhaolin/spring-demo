@@ -10,9 +10,9 @@ import org.springframework.web.context.WebApplicationContext;
  */
 @Component
 @Scope(value = WebApplicationContext.SCOPE_SESSION,
-    proxyMode = ScopedProxyMode.INTERFACES
+    proxyMode = ScopedProxyMode.TARGET_CLASS
 )
-public class ShoppingCart {
+public interface ShoppingCart {
 
 
 }

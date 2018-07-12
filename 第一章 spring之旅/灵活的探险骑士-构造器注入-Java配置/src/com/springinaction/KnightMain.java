@@ -10,10 +10,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class KnightMain {
 
     public static void main(String []args){
-        // 通过java配置的方式 加载spring上下文
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(KnightConfig.class);
-        // 获取 knight bean
-        Knight knight = context.getBean(Knight.class);
+        Knight knight = (Knight) context.getBean("braveKnight");
         knight.embarkOnQuest();
         context.close();
     }

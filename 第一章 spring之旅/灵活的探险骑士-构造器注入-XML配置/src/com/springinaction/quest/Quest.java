@@ -1,12 +1,11 @@
 package com.springinaction.quest;
 
-/**
- * @author shiwa
- */
-public interface Quest {
+import java.io.PrintStream;
 
-    /**
-     *  请求
-     */
-    void embark();
+public abstract class Quest {
+
+    protected PrintStream printStream;
+
+    public abstract void embark();
+
 }

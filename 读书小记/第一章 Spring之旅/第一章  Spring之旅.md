@@ -37,14 +37,14 @@ public class HelloWorld{
 BraveKnight.class
 ```
 public class BraveKnight implements Knight {
-   
+
     //拯救少女任务
     private RescueDamselQuest quest;
-    
+
     public BraveKnight(){
         this.quest = new RescueDamselQuest();
     }
-    
+
     @Override
     public void embarkOnQuest() {
         quest.embark();
@@ -150,7 +150,7 @@ knights.xml
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    
+
     <bean id="knight" class="com.springinaction.knights.BraveKnight">
         <constructor-arg ref="slayDragonQuest"/>
     </bean>
@@ -218,6 +218,8 @@ public class KnightMain {
     public static void main(String []args){
         // 通过java配置的方式 加载spring上下文
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(KnightConfig.class);
+        // 第二种写法
+        // AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("com.springinaction.config");
         // 获取 knight bean
         Knight knight = context.getBean(Knight.class);
         knight.embarkOnQuest();
@@ -239,7 +241,8 @@ DI（依赖注入）可以让**互相协作的软件保持松散耦合**，而�
 - 组件会因为那些与自身核心业务无关的代码而变得混乱。例如一个向地址簿增加地址条目的方法不应该关注它是否是安全的或者是否支持事务。
 
 
-AOP能够使这些服务模块化（比如说课程服务、学生服务...），并以声明的方式将横切关注点（例如日志模块、安全模块、事务管理模块...）应用到它们需要影响的组件中去。所造成的结果就是这些组件**会具有更高的内聚性**并且**会更加关注自身的业务**，完全不需要了解涉及系统服务
+AOP能够使服务模块化（比如说课程服务、学生服务...），并以声明的方式将横切关注点（例如日志模块、安全模块、事务管理模块...）应用到它们需要影响的组件中去。所造成的结果就是这些组件**会具有更高的内聚性**并且**会更加关注自身的业务**，完全不需要了解涉及系统服务
+
 
 
 AOP应用

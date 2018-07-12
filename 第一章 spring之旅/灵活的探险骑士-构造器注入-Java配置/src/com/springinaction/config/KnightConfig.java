@@ -8,27 +8,21 @@ import com.springinaction.quest.SlayDragonQuest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * @author shiwa
- */
-
 @Configuration
 public class KnightConfig {
-
-    @Bean
-    public Knight braveKnight(){
-        return new BraveKnight(rescueDamselQuest());
-    }
 
     @Bean
     public Quest rescueDamselQuest(){
         return new RescueDamselQuest(System.out);
     }
 
-
     @Bean
     public Quest slayDragonQuest(){
         return new SlayDragonQuest(System.out);
     }
 
+    @Bean
+    public Knight braveKnight(){
+        return new BraveKnight(slayDragonQuest());
+    }
 }

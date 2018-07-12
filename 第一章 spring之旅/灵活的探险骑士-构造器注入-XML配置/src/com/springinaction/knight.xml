@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="rescueDamselQuest" class="com.springinaction.quest.RescueDamselQuest">
+        <constructor-arg value="#{T(System).out}"/>
+    </bean>
+
+    <bean id="slayDragonQuest" class="com.springinaction.quest.SlayDragonQuest">
+        <constructor-arg value="#{T(System).out}"/>
+    </bean>
+
+    <bean id="braveKnight" class="com.springinaction.knights.BraveKnight">
+        <constructor-arg ref="rescueDamselQuest"/>
+    </bean>
+
+</beans>

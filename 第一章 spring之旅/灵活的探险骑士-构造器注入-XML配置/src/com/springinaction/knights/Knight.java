@@ -1,15 +1,9 @@
 package com.springinaction.knights;
 
-import java.lang.annotation.Documented;
+import com.springinaction.quest.Quest;
 
-/**
- * @author shiwa
- */
 public interface Knight {
 
-    /**
-     *  骑士从事请求
-     */
-    void embarkOnQuest();
+    public void embarkOnQuest();
 
 }

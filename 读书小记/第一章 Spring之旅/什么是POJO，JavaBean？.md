@@ -2,7 +2,9 @@
 
 ## 总结：
 POJO：
+
 一个简单的Java类，这个类没有实现/继承任何特殊的java接口或者类，不遵循任何主要java模型，约定或者框架的java对象。在理想情况下，POJO不应该有注解。
+
 JavaBean：
 
 - JavaBean是可序列化的，实现了serializable接口
@@ -27,20 +29,20 @@ POJO的创始人([martinfowler](https://www.martinfowler.com/bliki/POJO.html))�
 
 1.继承预先设定的类，如：
 ```
-public class Foo extends javax.servlet.http.HttpServlet { 
+public class Foo extends javax.servlet.http.HttpServlet {
     // ...
 }
 ```
 2.实现预先设定的接口，如：
 ```
-public class Bar implements javax.ejb.EntityBean { 
+public class Bar implements javax.ejb.EntityBean {
     // ...
 }
 ```
 3.包含预先指定的注解，如：
 ```
 @javax.persistence.Entity
-public class Baz { 
+public class Baz {
     // ...
 }
 ```
@@ -72,4 +74,3 @@ The configuration settings of a bean can be saved to persistent storage and rest
 - 什么是事件？有什么作用？bean如何注册来自于其他对象的事件？
 - 配置设置如何被存储和恢复？
 - serializable接口是做什么的？
-

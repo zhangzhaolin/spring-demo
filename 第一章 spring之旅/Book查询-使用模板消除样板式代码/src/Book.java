@@ -8,7 +8,6 @@ public class Book{
     private String author;
     private String description;
     private String isbn;
-    private String reader;
     private String title;
 
     public Long getId() {
@@ -43,14 +42,6 @@ public class Book{
         this.isbn = isbn;
     }
 
-    public String getReader() {
-        return reader;
-    }
-
-    public void setReader(String reader) {
-        this.reader = reader;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -66,7 +57,6 @@ public class Book{
                 ", author='" + author + '\'' +
                 ", description='" + description + '\'' +
                 ", isbn='" + isbn + '\'' +
-                ", reader='" + reader + '\'' +
                 ", title='" + title + '\'' +
                 '}';
     }

@@ -2,6 +2,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,27 +10,28 @@ import java.sql.SQLException;
 /**
  * @author shiwa
  */
+@Repository
 public class BookJdbcTemplate {
 
-    public Book getBookById(JdbcTemplate jdbcTemplate,Long id){
+    private final JdbcTemplate jdbcTemplate;
 
-        String sql = "select * FROM book where id = ?";
+    @Autowired
+    public BookJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
-        RowMapper<Book> rowMapper = new RowMapper<Book>() {
-            @Override
-            public Book mapRow(ResultSet resultSet, int i) throws SQLException {
-                Book book = new Book();
-                book.setId(resultSet.getLong("id"));
-                book.setAuthor(resultSet.getString("author"));
-                book.setDescription(resultSet.getString("description"));
-                book.setIsbn(resultSet.getString("isbn"));
-                book.setReader(resultSet.getString("reader"));
-                book.setTitle(resultSet.getString("title"));
-                return book;
-            }
+    public Book getBookById(Long id){
+        String sql = "SELECT * FROM BOOK WHERE ID = ?";
+        Book book = new Book();
+        RowMapper<Book> mapper = (rs , rowNum) -> {
+            book.setAuthor(rs.getString("author"));
+            book.setDescription(rs.getString("description"));
+            book.setId(rs.getLong("id"));
+            book.setIsbn(rs.getString("isbn"));
+            book.setTitle(rs.getString("title"));
+            return book;
         };
-
-        return jdbcTemplate.queryForObject(sql,rowMapper,id);
+        return jdbcTemplate.queryForObject(sql , mapper , id);
     }
 
 }

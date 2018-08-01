@@ -39,7 +39,7 @@ public class CDPlayerTest {
     @Test
     public void play(){
         mediaPlayer.play();
-        assertEquals("Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles",log.getLog());
+        assertEquals("Playing 寻宝游戏 by vae",log.getLog());
     }
 
 }

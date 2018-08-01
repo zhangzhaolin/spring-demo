@@ -2,7 +2,7 @@ package soundsystem.compactdisc;
 
 /**
  * @author shiwa
- *  CD播放器
+ *  cd唱片
  */
 public interface CompactDisc {
 

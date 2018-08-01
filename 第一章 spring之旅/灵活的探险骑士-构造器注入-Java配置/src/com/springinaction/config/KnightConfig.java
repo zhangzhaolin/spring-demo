@@ -25,4 +25,6 @@ public class KnightConfig {
     public Knight braveKnight(){
         return new BraveKnight(slayDragonQuest());
     }
+
+
 }

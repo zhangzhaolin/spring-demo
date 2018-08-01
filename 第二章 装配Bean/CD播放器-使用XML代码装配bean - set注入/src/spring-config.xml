@@ -26,7 +26,8 @@
 		<!--</property>-->
 	<!--</bean>-->
 
-	<bean id="sgtPeppers" class="soundsystem.compactdisc.BlankDisc" p:title="Sgt. Pepper's Lonely Hearts Club Band" p:artist="The Beatles" p:tracks-ref="tracks">
+	<bean id="sgtPeppers" class="soundsystem.compactdisc.BlankDisc"
+		  p:title="Sgt. Pepper's Lonely Hearts Club Band" p:artist="The Beatles" p:tracks-ref="tracks">
 	</bean>
 
 	<util:list id="tracks">

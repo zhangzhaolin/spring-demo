@@ -1,4 +1,4 @@
-package soundsystem;
+package main.java.soundsystem;
 
 public interface MediaPlayer {
 

@@ -1,4 +1,5 @@
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Profile;
 
 /**
  * @author shiwa
@@ -10,8 +11,8 @@ public class MainTest {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 
-        context.getEnvironment().setActiveProfiles("dev");
         context.register(ProfileConfig.class);
+        context.getEnvironment().setActiveProfiles("dev");
         context.refresh();
 
         DemoBean demoBean = context.getBean(DemoBean.class);

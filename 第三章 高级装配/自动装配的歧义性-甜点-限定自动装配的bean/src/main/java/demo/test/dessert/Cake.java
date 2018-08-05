@@ -1,5 +1,6 @@
 package demo.test.dessert;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 /**

@@ -2,9 +2,11 @@ package demo.test.machine;
 
 import demo.test.dessert.Dessert;
 import demo.test.inter.Cold;
+import demo.test.inter.Creamy;
 import demo.test.inter.Fruit;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
@@ -18,7 +20,7 @@ public class DessertMachine implements Machine {
 
     @Autowired
     @Cold
-    @Fruit
+    @Creamy
     public void setDessert(Dessert dessert){
         this.dessert = dessert;
     }

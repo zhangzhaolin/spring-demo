@@ -7,7 +7,7 @@ import soundsystem.compactdisc.CompactDisc;
 /**
  * @author shiwa
  */
-
+@Component
 public class CDPlayer implements MediaPlayer {
 
     private CompactDisc compactDisc;

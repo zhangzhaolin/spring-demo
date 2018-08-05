@@ -1,6 +1,7 @@
 package demo.test.dessert;
 
 import demo.test.inter.*;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**

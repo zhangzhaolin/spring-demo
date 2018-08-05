@@ -25,28 +25,29 @@ import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:spring-config.xml")
-@ActiveProfiles("prod")
+@ActiveProfiles("dev")
 public class UserDaoTest {
 
     @Autowired
     private DataSource dataSource;
 
     @Test
-    public void text() throws Exception{
+    public void text() throws Exception {
         assertNotNull(dataSource);
         JdbcTemplate jdbc = new JdbcTemplate(dataSource);
-        List<String> results = jdbc.query("SELECT * FROM production", new RowMapper<String>() {
-            public String mapRow(ResultSet resultSet, int i) throws SQLException {
-                return resultSet.getLong("id") + ":" + resultSet.getString("name") ;
-            }
-        });
-        for (String r:results){
+
+        List<String> results = jdbc.query("SELECT * FROM dev" ,
+                (resultSet , i) -> {
+                    return resultSet.getLong("id") + " : " + resultSet.getString("name");
+                });
+
+        for (String r : results) {
             System.out.println(r);
         }
     }
 
     @After
-    public void shutdown(){
+    public void shutdown() {
 
     }
 

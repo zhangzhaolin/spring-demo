@@ -2,6 +2,7 @@ package soundsystem.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Service;
 import soundsystem.compactdisc.CompactDisc;
 import soundsystem.compactdisc.SgtPeppers;
 
@@ -10,6 +11,7 @@ import soundsystem.compactdisc.SgtPeppers;
  */
 
 @Configuration
+@Service
 public class CDConfig {
 
     @Bean

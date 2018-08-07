@@ -1,12 +1,11 @@
-import com.springdemo.config.ExpressiveConfig;
 import com.springdemo.soundsystem.BlankDisc;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ExpressiveConfig.class);
-        BlankDisc blankDisc = (BlankDisc)context.getBean("blankDisc");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("blankDisc.xml");
+        BlankDisc blankDisc = (BlankDisc) context.getBean("blankDisc");
         blankDisc.play();
     }
 }

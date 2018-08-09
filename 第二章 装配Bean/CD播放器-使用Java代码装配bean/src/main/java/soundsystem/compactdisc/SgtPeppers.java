@@ -1,6 +1,7 @@
 package soundsystem.compactdisc;
 
 import org.springframework.stereotype.Component;
+import soundsystem.compactdisc.CompactDisc;
 
 /**
  * @author shiwa

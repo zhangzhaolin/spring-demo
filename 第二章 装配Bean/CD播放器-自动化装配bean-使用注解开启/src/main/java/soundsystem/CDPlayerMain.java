@@ -1,14 +1,9 @@
-package soundsystem;
+package main.java.soundsystem;
 
-import com.sun.org.apache.bcel.internal.util.ClassPath;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import soundsystem.config.CDPlayerConfig;
-import soundsystem.mediaplayer.CDPlayer;
-import soundsystem.mediaplayer.MediaPlayer;
-
-import java.util.Date;
-import java.util.Scanner;
+import main.java.soundsystem.config.CDPlayerConfig;
+import main.java.soundsystem.mediaplayer.CDPlayer;
 
 public class CDPlayerMain {
 

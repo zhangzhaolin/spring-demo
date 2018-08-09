@@ -1,4 +1,4 @@
-package soundsystem.test;
+
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -9,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import soundsystem.compactdisc.CompactDisc;
 import soundsystem.mediaplayer.MediaPlayer;
+
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

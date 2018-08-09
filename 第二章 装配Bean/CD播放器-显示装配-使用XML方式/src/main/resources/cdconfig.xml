@@ -3,11 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="mediaPlayer" class="main.java.soundsystem.CDPlayer" c:_0-ref="compactDisc">
+    <bean id="mediaPlayer" class="soundsystem.CDPlayer" c:_0-ref="compactDisc">
         <!--<constructor-arg ref="compactDisc"/>-->
     </bean>
 
-    <bean id="compactDisc" class="main.java.soundsystem.SgtPeppers" c:_0="寻宝游戏" c:_1="VAE">
+    <bean id="compactDisc" class="soundsystem.SgtPeppers" c:_0="寻宝游戏" c:_1="VAE">
         <constructor-arg>
             <list>
                 <value>track1</value>

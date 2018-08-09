@@ -1,6 +1,6 @@
-package main.java.soundsystem;
+package soundsystem;
 
-public class CDPlayer implements MediaPlayer{
+public class CDPlayer implements MediaPlayer {
 
     private CompactDisc compactDisc;
 

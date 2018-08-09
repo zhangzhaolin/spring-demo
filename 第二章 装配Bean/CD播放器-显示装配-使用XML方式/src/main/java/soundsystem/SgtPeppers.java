@@ -1,4 +1,4 @@
-package main.java.soundsystem;
+package soundsystem;
 
 import java.util.List;
 

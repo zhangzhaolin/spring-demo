@@ -1,4 +1,3 @@
-package main.example;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;

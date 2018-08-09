@@ -1,6 +1,0 @@
-CREATE TABLE dev(
-  id INT PRIMARY KEY ,
-  name VARCHAR(200)
-);
-
-INSERT INTO dev VALUES (1,'测试环境');

@@ -1,3 +1,4 @@
+import concert.EncoreableIntroducer;
 import concert.MusicPerformance;
 import concert.Performance;
 import concert.SpringConfig;
@@ -7,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
-        Performance performance = (Performance) context.getBean("musicPerformance");
-        performance.perform();
+        EncoreableIntroducer performance = (EncoreableIntroducer) context.getBean("encoreableIntroducer");
+        // ! performance.encoreable.performEncore();
     }
 }

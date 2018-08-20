@@ -12,7 +12,6 @@ public class BookJdbcTemplate {
 
     private final JdbcTemplate jdbcTemplate;
 
-    @Autowired
     public BookJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }

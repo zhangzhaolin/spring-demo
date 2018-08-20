@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="blankDisc" class="soundsystem.BlankDisc"
+          c:_0="${disc.title}" c:_1="${disc.artist}" c:_2-ref="blankDiscList"/>
+
+    <bean id="cdPlayer" class="soundsystem.CDPlayer"/>
+
+    <bean id="trackCounter" class="soundsystem.TrackCounter"/>
+
+    <util:list id="blankDiscList">
+        <value>老古董</value>
+        <value>大千世界</value>
+        <value>如约而至</value>
+        <value>柳成荫</value>
+    </util:list>
+
+    <context:property-placeholder location="classpath:/application.properties"/>
+
+    <aop:aspectj-autoproxy/>
+
+    <import resource="classpath:/aopconfig.xml"/>
+
+
+</beans>

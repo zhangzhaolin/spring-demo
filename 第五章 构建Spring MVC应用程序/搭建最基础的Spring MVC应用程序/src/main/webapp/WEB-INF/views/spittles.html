@@ -22,7 +22,7 @@
         <ol>
             <li v-for="spittle in spittles">
                 {{ spittle.message }}
-                {{ spittle.time }}
+                {{ spittle.time | formateDate }}
             </li>
         </ol>
 

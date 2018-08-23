@@ -11,8 +11,9 @@ $(function () {
                     spittles : result.data
                 },
                 filter : {
-                    timeFormater : function (time) {
-                        
+                    formateDate : function (value) {
+                        return "2019/12/10"
+                        // return format(new Date(),"YYYY-MM-dd HH:mm:ss");
                     }
                 }
             })

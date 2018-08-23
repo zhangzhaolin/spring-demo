@@ -1,13 +1,25 @@
+var spittlesList;
+
 $(function () {
     $.ajax({
         type: 'POST',
         url: "/spittles",
-        success: function (data) {
-            console.log(data);
+        success: function (result) {
+            spittlesList = new Vue({
+                el : '#spittlesList',
+                data : {
+                    spittles : result.data
+                },
+                filter : {
+                    timeFormater : function (time) {
+                        
+                    }
+                }
+            })
         },
         dataType: "json",
         error : function (error) {
-            console.log(error);
+
         }
     });
 });

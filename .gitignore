@@ -26,6 +26,11 @@ hs_err_pid*
 .idea/
 target/
 *.iml
+out/
 
 ## Mac
 .DS_Store
+
+## Java web
+
+

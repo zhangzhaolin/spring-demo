@@ -1,13 +1,14 @@
-var spittlesList;
-
 $(function () {
-    axios.post('/spittles', {
+    
+    $("body").on("click","#returnList",function () {
+        window.location.href = "/spittles";
+    });
 
-    }).then(function (response) {
-        spittlesList = new Vue({
-            el : '#spittlesList',
+    axios.post(window.location.pathname,{}).then(function (response) {
+        new Vue({
+            el : "#spittle",
             data : {
-                spittles : response.data.data
+                "spittle" : response.data.data
             },
             filters : {
                 formateDate: function (value) {
@@ -15,9 +16,10 @@ $(function () {
                     return moment(value).format("lll");
                 }
             }
-        });
+        })
+
     }).catch(function (error) {
-        console.log(error);
+
     });
 
 });

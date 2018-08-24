@@ -5,9 +5,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.scheduling.config.AnnotationDrivenBeanDefinitionParser;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
@@ -42,4 +44,5 @@ public class WebConfig implements WebMvcConfigurer  {
         registry.addResourceHandler("/resources/")
                 .addResourceLocations("/resources/**");
     }
+
 }

@@ -1,5 +1,6 @@
 package spittr.pojo;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Objects;
 
@@ -7,15 +8,15 @@ public class Spittle {
 
     private final Long id;
     private final String message;
-    private final Date time;
+    private final Timestamp time;
     private Double latitude;
     private Double longitude;
 
-    public Spittle(String message , Date time) {
+    public Spittle(String message , Timestamp time) {
         this(null,message,time,null,null);
     }
 
-    public Spittle(Long id,String message , Date time , Double latitude , Double longitude) {
+    public Spittle(Long id,String message , Timestamp time , Double latitude , Double longitude) {
         this.id = id;
         this.message = message;
         this.time = time;
@@ -31,7 +32,7 @@ public class Spittle {
         return message;
     }
 
-    public Date getTime() {
+    public Timestamp getTime() {
         return time;
     }
 

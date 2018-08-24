@@ -25,16 +25,24 @@ public class JdbcSpittleRepository implements SpittleRepository {
                new SpittleRowMap() , max , count);
     }
 
+    @Override
+    public Spittle findSpittle(Long spittleId) {
+        return jdbcOperations.queryForObject("SELECT * FROM spittle WHERE id = ?",
+                new SpittleRowMap(),spittleId);
+    }
+
     private class SpittleRowMap implements RowMapper<Spittle>{
         @Override
         public Spittle mapRow(ResultSet rs , int rowNum) throws SQLException {
             return new Spittle(
                     rs.getLong("id"),
                     rs.getString("message"),
-                    rs.getDate("created_at"),
+                    rs.getTimestamp("created_at"),
                     rs.getDouble("latitude"),
                     rs.getDouble("longitude")
             );
         }
     }
+
+
 }

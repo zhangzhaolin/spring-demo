@@ -3,14 +3,13 @@ package spittr.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import spittr.data.SpittleRepository;
+import spittr.pojo.Spitter;
 import spittr.util.JsonUtils;
 import spittr.util.ResultEnum;
 
+import javax.xml.transform.Result;
 import java.util.Map;
 
 @Controller
@@ -18,6 +17,7 @@ import java.util.Map;
 public class SpittleController {
 
     private SpittleRepository spittleRepository;
+    private static final String MAX_LONG_AS_STRING = "2147483647";
 
     @Autowired
     public SpittleController(SpittleRepository spittleRepository){
@@ -31,9 +31,22 @@ public class SpittleController {
 
     @PostMapping
     @ResponseBody
-    public JsonUtils spittlesPost(){
+    public JsonUtils spittlesPost(
+            @RequestParam(value = "max" , defaultValue = MAX_LONG_AS_STRING) long max,
+            @RequestParam(value = "count" , defaultValue = "10") int count){
         return new JsonUtils(ResultEnum.SUCCESS,null,
-                spittleRepository.findSpittles(Integer.MAX_VALUE,20));
+                spittleRepository.findSpittles(max,count));
+    }
+
+    @GetMapping(value = "/show/{spittleId}")
+    public String spittleGet(){
+        return "spittle";
+    }
+
+    @PostMapping(value = "/show/{spittleId}")
+    @ResponseBody
+    public JsonUtils spittlePost(@PathVariable Long spittleId){
+        return new JsonUtils(ResultEnum.SUCCESS,null,spittleRepository.findSpittle(spittleId));
     }
 
 }

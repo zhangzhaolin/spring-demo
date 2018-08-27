@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--jquery-->
+    <script src="/resources/static/base/jquery.min.js" type="text/javascript"></script>
+    <!--表单提交-->
+    <script src="/resources/static/base/jquery.serialize-object.min.js"></script>
+    <!--ajax-->
+    <script src="/resources/static/base/axios.min.js"></script>
+    <!--semantic ui-->
+    <link href="/resources/static/base/font.css" type="text/css" rel="stylesheet"/>
+    <script src="/resources/static/semantic/semantic.min.js" type="text/javascript"></script>
+    <link href="/resources/static/semantic/semantic.min.css" type="text/css" rel="stylesheet"/>
+    <!--vue-->
+    <script src="/resources/static/vue/vue.js"></script>
+    <!--日期格式化-->
+    <script src="/resources/static/moment/moment.js"></script>
+    <!--本页面的js-->
+    <script src="/resources/static/views/registerForm.js"></script>
+</head>
+
+<body>
+    <div class="ui text container">
+        <form class="ui form" style="padding-top: 5%;" action="/spitter/register" method="post">
+
+            <div class="field">
+                <img class="ui centered small circular image" id="logo" src="/resources/images/matthew.png">
+            </div>
+
+
+            <div class="field">
+                <label>姓氏</label>
+                <input type="text" id="姓氏" name="firstName" placeholder="姓氏">
+            </div>
+            <div class="field">
+                <label>名称</label>
+                <input type="text" name="lastName" placeholder="名称">
+            </div>
+            <div class="field">
+                <label>用户名</label>
+                <input type="text" name="userName" placeholder="用户名">
+            </div>
+            <div class="field">
+                <label>密码</label>
+                <input type="password" name="passWord" placeholder="密码" autocomplete="">
+            </div>
+            <div class="field">
+                <label>图片上传</label>
+                <input type="file" name="imgLogo" accept="image/jpeg,image/png,image/gif"/>
+            </div>
+            <div class="field">
+                <div class="ui checkbox">
+                    <input type="checkbox" tabindex="0" class="hidden">
+                    <label>我同意本条款和条件</label>
+                </div>
+            </div>
+            <div class="ui error message">
+
+            </div>
+            <div class="ui primary button" id="submit">提交</div>
+        </form>
+    </div>
+
+</body>
+</html>

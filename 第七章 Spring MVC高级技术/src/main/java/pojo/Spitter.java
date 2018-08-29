@@ -29,12 +29,14 @@ public class Spitter {
 
     private String imgLogo;
 
-    public Spitter(String firstName , String lastName , String userName , String passWord , String email) {
+    public Spitter(Long id,String firstName , String lastName , String userName , String passWord , String email , String imgLogo) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.passWord = passWord;
         this.email = email;
+        this.imgLogo = imgLogo;
     }
 
     public Long getId() {

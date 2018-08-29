@@ -1,10 +1,13 @@
 package config;
 
+import org.springframework.core.env.Environment;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.web.servlet.FrameworkServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import javax.servlet.Filter;
-import javax.servlet.MultipartConfigElement;
-import javax.servlet.ServletRegistration;
+import javax.servlet.*;
 
 public class WebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -21,9 +24,18 @@ public class WebApplicationInitializer extends AbstractAnnotationConfigDispatche
     }
 
     @Override
+    protected Filter[] getServletFilters() {
+        return new Filter[]{new CharacterEncodingFilter("utf-8",false,true)};
+    }
+
+
+
+    @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
-        registration.setMultipartConfig(
-                new MultipartConfigElement("/tmp/spittr/uploads",
-                        2*1024,4*1024,0));
+        registration.setInitParameter("throwExceptionIfNoHandlerFound","true");
+        registration.setMultipartConfig(new MultipartConfigElement(
+                "E:/upload",
+                4*1024*1024,8*1024*1024,0
+        ));
     }
 }

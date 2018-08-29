@@ -24,7 +24,7 @@
 
 <body>
     <div class="ui text container">
-        <form class="ui form" style="padding-top: 5%;" action="/spitter/register" method="post">
+        <form class="ui form" style="padding-top: 5%;" enctype="multipart/form-data" action="/spitter/register" method="post">
 
             <div class="field">
                 <img class="ui centered small circular image" id="logo" src="/resources/images/matthew.png">
@@ -41,7 +41,7 @@
             </div>
             <div class="field">
                 <label>用户名</label>
-                <input type="text" name="userName" placeholder="用户名">
+                <input type="text" id="userName" name="userName" placeholder="用户名">
             </div>
             <div class="field">
                 <label>密码</label>

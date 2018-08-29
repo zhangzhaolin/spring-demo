@@ -9,7 +9,19 @@ $(function () {
 
         })
     }).catch(function (error) {
-        console.log(error)
+        if(error.response){
+            console.log(error.response.data);
+            new Vue({
+                el : "#spitter",
+                data : {
+                    spitter : {
+                        firstName : error.response.data
+                    }
+                }
+            })
+        }else{
+            console.log(error.message)
+        }
     })
 
 });

@@ -35,6 +35,13 @@ $(function () {
                     type : 'empty',
                     prompt : '请输入您的密码'
                 }]
+            },
+            imgLogo : {
+                identifier : 'imgLogo',
+                rules : [{
+                    type : 'empty',
+                    prompt : '请上传您的图片'
+                }]
             }
         },
         onSuccess: function(e) {
@@ -43,8 +50,13 @@ $(function () {
         }
     }).api({
         action : "create user",
-        serializeForm : true,
         method : "POST",
+        processData: false,
+        contentType: false,
+        beforeSend : function(settings){
+            settings.data = new FormData($(".ui.form")[0]);
+            return settings;
+        },
         onResponse : function(response) {
             var data = response.data;
             if(response.result === "SUCCESS"){
@@ -56,6 +68,11 @@ $(function () {
                 });
                 $(".ui.form").form("add errors",errors);
             }
+        },
+        onFailure : function(error){
+            var errors = [];errors.push(error);
+            $(".ui.form").form("add prompt" , "userName");
+            $(".ui.form").form("add errors" , errors);
         }
     });
 

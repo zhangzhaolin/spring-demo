@@ -12,7 +12,7 @@ $(function () {
             filters : {
                 formateDate: function (value) {
                     moment.locale("zh_cn");
-                    return moment(value).format("lll");
+                    return moment(value).format("LLL");
                 }
             }
         });

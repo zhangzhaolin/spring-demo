@@ -29,7 +29,7 @@ public class WebConfig implements WebMvcConfigurer {
         return resolver;
     }
 
-    // 配置消息转换器
+    // 配置消息转换器 防止乱码
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         converters.add(new StringHttpMessageConverter(UTF_8));
         converters.add(new MappingJackson2HttpMessageConverter());

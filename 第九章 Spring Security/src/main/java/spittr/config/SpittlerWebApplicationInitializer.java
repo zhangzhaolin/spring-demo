@@ -22,10 +22,10 @@ public class SpittlerWebApplicationInitializer extends AbstractAnnotationConfigD
         return new String[]{"/"};
     }
 
-    @Override
+    /*@Override
     protected Filter[] getServletFilters() {
         return new Filter[]{new CharacterEncodingFilter("utf-8",true)};
-    }
+    }*/
 
     @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {

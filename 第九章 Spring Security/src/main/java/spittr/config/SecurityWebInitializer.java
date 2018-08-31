@@ -2,7 +2,6 @@ package spittr.config;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 import org.springframework.web.filter.CharacterEncodingFilter;
-
 import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 
@@ -10,9 +9,8 @@ public class SecurityWebInitializer extends AbstractSecurityWebApplicationInitia
 
     @Override
     protected void beforeSpringSecurityFilterChain(ServletContext servletContext) {
-        CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter("utf-8",true);
-        FilterRegistration.Dynamic dynamic = servletContext.addFilter("encodingFilter",encodingFilter);
-        dynamic.addMappingForUrlPatterns(null,false,"/*");
+        FilterRegistration.Dynamic filterRegistration =  servletContext.addFilter("encodingFilter",new CharacterEncodingFilter("utf-8",true));
+        filterRegistration.addMappingForUrlPatterns(null,false,"/*");
     }
 
 }

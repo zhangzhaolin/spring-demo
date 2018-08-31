@@ -2,16 +2,14 @@ package spittr.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.crypto.password.StandardPasswordEncoder;
-import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;
+import spittr.dao.SpitterRepository;
 
 import javax.sql.DataSource;
 
@@ -21,9 +19,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final DataSource dataSource;
 
+    private final SpitterRepository spitterRepository;
+
     @Autowired
-    public SecurityConfig(DataSource dataSource) {
+    public SecurityConfig(DataSource dataSource , SpitterRepository spitterRepository) {
         this.dataSource = dataSource;
+        this.spitterRepository = spitterRepository;
     }
 
     @Override
@@ -35,10 +36,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
                 .withUser("user").password(new BCryptPasswordEncoder().encode("user"))
                 .roles("USER");*/
-        auth.jdbcAuthentication().dataSource(dataSource).usersByUsernameQuery(
+
+        /*auth.jdbcAuthentication().dataSource(dataSource).usersByUsernameQuery(
                 "SELECT username,password,true FROM spitter where username = ?"
         ).authoritiesByUsernameQuery("SELECT username,'ROLE_USER' from spitter where username = ?")
-                .passwordEncoder(new BCryptPasswordEncoder());
+                .passwordEncoder(new BCryptPasswordEncoder());*/
+
+        auth.userDetailsService(spitterRepository).passwordEncoder(new BCryptPasswordEncoder());
 
     }
 
@@ -50,6 +54,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        super.configure(http);
+        http.formLogin().and()
+                .authorizeRequests()
+                .antMatchers("/spitter/user/**").authenticated()
+                .antMatchers("/spittles/**").authenticated()
+                .anyRequest().permitAll()
+                .and().csrf().disable();
     }
 }

@@ -73,7 +73,7 @@ public class SpitterController {
         return new JsonUtils(ResultEnum.SUCCESS,null,spitter.getUserName());
     }
 
-    @PostMapping(value = "/user/{username}")
+    @PostMapping(value = "/spittles/{username}")
     @ResponseBody
     public JsonUtils spitterProfile(@PathVariable String username) throws IncorrectResultSizeDataAccessException {
         return new JsonUtils(ResultEnum.SUCCESS,null,

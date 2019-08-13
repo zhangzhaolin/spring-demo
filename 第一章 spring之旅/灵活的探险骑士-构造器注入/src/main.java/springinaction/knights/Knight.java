@@ -1,5 +1,7 @@
 package springinaction.knights;
 
+import springinaction.quest.Quest;
+
 import java.lang.annotation.Documented;
 
 /**
@@ -8,7 +10,7 @@ import java.lang.annotation.Documented;
 public interface Knight {
 
     /**
-     *  骑士从事请求
+     * 骑士从事请求
      */
     void embarkOnQuest();
 

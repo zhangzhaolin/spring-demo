@@ -2,9 +2,14 @@ package springinaction.quest;
 
 import java.io.PrintStream;
 
-public class SlayDragonQuest extends Quest {
+/**
+ * @author zhang
+ */
+public class SlayDragonQuest implements AbstractQuest {
 
-    public SlayDragonQuest(PrintStream printStream){
+    private PrintStream printStream;
+
+    public SlayDragonQuest(PrintStream printStream) {
         this.printStream = printStream;
     }
 
@@ -12,4 +17,5 @@ public class SlayDragonQuest extends Quest {
     public void embark() {
         printStream.println("勇士.请和恶龙争斗吧.");
     }
+
 }

@@ -1,12 +1,15 @@
 package springinaction.quest;
 
-import springinaction.quest.Quest;
-
 import java.io.PrintStream;
 
-public class RescueDamselQuest extends Quest {
+/**
+ * @author zhang
+ */
+public class RescueDamselQuest implements AbstractQuest {
 
-    public RescueDamselQuest(PrintStream printStream){
+    private PrintStream printStream;
+
+    public RescueDamselQuest(PrintStream printStream) {
         this.printStream = printStream;
     }
 
@@ -14,4 +17,5 @@ public class RescueDamselQuest extends Quest {
     public void embark() {
         printStream.println("勇士.请拯救您的少女.");
     }
+
 }

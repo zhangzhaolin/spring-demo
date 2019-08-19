@@ -1,17 +1,16 @@
-package main.java.springinaction;
+package springinaction;
 
-import main.java.springinaction.knights.Knight;
-import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.beans.factory.support.BeanNameGenerator;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import springinaction.knights.Knight;
 
 /**
  * @author shiwa
  */
 public class KnightMain {
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(main.java.springinaction.config.KnightConfig.class);
-        Knight knight = (Knight)context.getBean("braveKnight");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("springinaction/config");
+        Knight knight = (Knight) context.getBean("knight");
         knight.embarkOnQuest();
     }
 }

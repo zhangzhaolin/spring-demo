@@ -1,12 +1,15 @@
 package springinaction.knights;
 
-import springinaction.quest.Quest;
+import springinaction.quest.AbstractQuest;
 
+/**
+ * @author zhang
+ */
 public class BraveKnight implements Knight {
 
-    private Quest quest;
+    private AbstractQuest quest;
 
-    public BraveKnight(Quest quest){
+    public BraveKnight(AbstractQuest quest){
         this.quest = quest;
     }
 

@@ -1,14 +1,11 @@
 package springinaction.knights;
 
-import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 import springinaction.quest.Quest;
 
 /**
  * @author shiwa
  */
-public class BraveKnight implements Knight, ApplicationContextAware {
+public class BraveKnight implements Knight {
 
     private Quest quest;
 
@@ -19,10 +16,5 @@ public class BraveKnight implements Knight, ApplicationContextAware {
     @Override
     public void embarkOnQuest() {
         quest.embark();
-    }
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("ApplicationContextAware接口初始化");
     }
 }

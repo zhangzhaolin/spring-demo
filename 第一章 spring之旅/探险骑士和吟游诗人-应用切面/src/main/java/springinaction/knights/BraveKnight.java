@@ -10,6 +10,7 @@ public class BraveKnight implements Knight {
         this.quest = quest;
     }
 
+    @Override
     public void embarkOnQuest() {
         quest.embark();
     }

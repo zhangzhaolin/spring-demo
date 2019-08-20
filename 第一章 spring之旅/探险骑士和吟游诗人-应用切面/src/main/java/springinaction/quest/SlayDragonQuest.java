@@ -10,6 +10,7 @@ public class SlayDragonQuest implements Quest {
         this.printStream = printStream;
     }
 
+    @Override
     public void embark() {
         printStream.println("勇士.请和恶龙争斗吧.");
     }

@@ -5,7 +5,7 @@ import java.io.PrintStream;
 /**
  * @author zhang
  */
-public class RescueDamselQuest implements AbstractQuest {
+public class RescueDamselQuest implements Quest {
 
     private PrintStream printStream;
 

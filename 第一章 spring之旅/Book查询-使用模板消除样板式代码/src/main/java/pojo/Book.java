@@ -1,3 +1,4 @@
+package pojo;
 
 /**
  * @author shiwa
@@ -52,7 +53,7 @@ public class Book{
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "pojo.Book{" +
                 "id=" + id +
                 ", author='" + author + '\'' +
                 ", description='" + description + '\'' +

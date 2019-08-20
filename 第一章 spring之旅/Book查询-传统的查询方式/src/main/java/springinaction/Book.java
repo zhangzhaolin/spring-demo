@@ -1,4 +1,4 @@
-package main.java.springinaction;
+package springinaction;
 
 import java.util.Objects;
 
@@ -53,8 +53,12 @@ public class Book {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Book book = (Book) o;
         return Objects.equals(id, book.id) &&
                 Objects.equals(author, book.author) &&
@@ -65,18 +69,18 @@ public class Book {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(id, author, description, isbn, title);
     }
 
     @Override
     public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", author='" + author + '\'' +
-                ", description='" + description + '\'' +
-                ", isbn='" + isbn + '\'' +
-                ", title='" + title + '\'' +
-                '}';
+        final StringBuffer sb = new StringBuffer("Book{");
+        sb.append("id=").append(id);
+        sb.append(", author='").append(author).append('\'');
+        sb.append(", description='").append(description).append('\'');
+        sb.append(", isbn='").append(isbn).append('\'');
+        sb.append(", title='").append(title).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

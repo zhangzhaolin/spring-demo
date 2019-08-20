@@ -10,6 +10,7 @@ public class RescueDamselQuest implements Quest {
         this.printStream = printStream;
     }
 
+    @Override
     public void embark() {
         printStream.println("勇士.请拯救您的少女.");
     }

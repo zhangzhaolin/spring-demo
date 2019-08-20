@@ -1,8 +1,5 @@
 package springinaction.knights;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import springinaction.quest.AbstractQuest;
-
 /**
  * @author zhang
  */

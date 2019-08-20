@@ -6,7 +6,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import springinaction.knights.Knight;
 
 @ExtendWith({SpringExtension.class})
-@ContextConfiguration(value = "classpath:/spring.xml")
+@ContextConfiguration(value = "classpath:/knight.xml")
 class SpringContextTest {
 
     @Autowired

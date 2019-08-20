@@ -5,7 +5,7 @@ import java.io.PrintStream;
 /**
  * @author zhang
  */
-public interface AbstractQuest {
+public interface Quest {
 
     /**
      * 一些抽象请求...

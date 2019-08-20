@@ -1,57 +1,30 @@
-package main.java.springinaction;
+package springinaction;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BookMain {
-    public static void main(String []args){
-        Connection con = null;
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
-        Book book = new Book();
-        try{
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/graduate?serverTimezone=GMT&useSSL=true","root","root");
-			statement = con.prepareStatement("SELECT * FROM BOOK WHERE author = ?");
-
-			statement.setString(1,"施瓦辛格");
-			resultSet = statement.executeQuery();
-			while(resultSet.next()){
-				book.setId(resultSet.getLong("id"));
-				book.setDescription(resultSet.getString("description"));
-				book.setTitle(resultSet.getString("title"));
-				book.setIsbn(resultSet.getString("isbn"));
-				book.setAuthor(resultSet.getString("author"));
-				System.out.println(book);
-			}
-		}catch(Exception e){
-
-			e.printStackTrace();
-
-        	if(resultSet!=null){
-				try {
-					resultSet.close();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
-			}
-			if (statement != null){
-				try {
-					statement.close();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
-			}
-			if (con != null){
-
-				try {
-					con.close();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
-
-			}
-
-		}
-
+    public static void main(String[] args) {
+        List<Book> books = new ArrayList<>();
+        try (
+                Connection connection =
+                        DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/graduate?serverTimezone=Asia/Shanghai", "root", "123456");
+                PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM book");
+                ResultSet resultSet = preparedStatement.executeQuery();
+        ) {
+            while (resultSet.next()) {
+                Book book = new Book();
+                book.setId(resultSet.getLong("id"));
+                book.setAuthor(resultSet.getString("author"));
+                book.setDescription(resultSet.getString("description"));
+                book.setIsbn(resultSet.getString("isbn"));
+                book.setTitle(resultSet.getString("title"));
+                books.add(book);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        books.forEach(System.out::println);
     }
 }

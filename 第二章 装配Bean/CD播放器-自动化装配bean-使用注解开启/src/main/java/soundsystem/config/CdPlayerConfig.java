@@ -10,8 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan(basePackages = "soundsystem")
-public class CDPlayerConfig {
-
+public class CdPlayerConfig {
 
 
 }

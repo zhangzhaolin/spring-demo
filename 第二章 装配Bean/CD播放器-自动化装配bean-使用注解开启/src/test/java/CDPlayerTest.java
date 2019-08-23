@@ -1,29 +1,22 @@
-
-
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.contrib.java.lang.system.SystemOutRule;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import soundsystem.compactdisc.CompactDisc;
-import soundsystem.config.CDPlayerConfig;
+import soundsystem.config.CdPlayerConfig;
 import soundsystem.mediaplayer.MediaPlayer;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 /**
  * @author shiwa
  */
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = CDPlayerConfig.class)
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(classes = CdPlayerConfig.class)
 public class CDPlayerTest {
-
-    @Rule
-    public final SystemOutRule log = new SystemOutRule().enableLog();
 
     @Autowired
     private MediaPlayer mediaPlayer;
@@ -32,14 +25,13 @@ public class CDPlayerTest {
     private CompactDisc compactDisc;
 
     @Test
-    public void cdShouldNotBeNull(){
-        assertNotNull(compactDisc);
+    public void cdShouldNotBeNull() {
+        Assertions.assertNotNull(compactDisc);
     }
 
     @Test
-    public void play(){
-        mediaPlayer.play();
-        assertEquals("Playing 寻宝游戏 by vae",log.getLog());
+    public void play() {
+        Assertions.assertEquals("Playing 寻宝游戏 by vae", mediaPlayer.play());
     }
 
 }

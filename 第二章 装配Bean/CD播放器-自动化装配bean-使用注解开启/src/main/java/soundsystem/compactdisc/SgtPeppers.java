@@ -1,5 +1,7 @@
 package soundsystem.compactdisc;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 /**
@@ -7,14 +9,17 @@ import org.springframework.stereotype.Component;
  */
 
 @Component(value = "sgtPeppers")
+@PropertySource("classpath:/cd.properties")
 public class SgtPeppers implements CompactDisc {
 
-    private String title = "寻宝游戏";
+    @Value("${cd.title}")
+    private String title;
 
-    private String artist = "vae";
+    @Value("${cd.artist}")
+    private String artist;
 
     @Override
-    public void play() {
-        System.out.print("Playing " + title + " by " + artist);
+    public String play() {
+        return "Playing " + title + " by " + artist;
     }
 }

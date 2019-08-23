@@ -9,17 +9,17 @@ import soundsystem.compactdisc.CompactDisc;
  */
 
 @Component(value = "lonelyHeartsClub")
-public class CDPlayer implements MediaPlayer {
+public class CdPlayer implements MediaPlayer {
 
     private final CompactDisc compactDisc;
 
     @Autowired
-    public CDPlayer(CompactDisc compactDisc) {
+    public CdPlayer(CompactDisc compactDisc) {
         this.compactDisc = compactDisc;
     }
 
     @Override
-    public void play() {
-        compactDisc.play();
+    public String play() {
+        return compactDisc.play();
     }
 }

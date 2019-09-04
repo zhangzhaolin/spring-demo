@@ -10,9 +10,9 @@ import org.springframework.context.annotation.Profile;
 @Configuration
 public class MagicBeanConfig {
 
-    @Bean
+    @Bean(value = "magicBean")
     @Conditional(MagicExistsCondition.class)
-    public MagicBean magicBean(){
+    public MagicBean magicBean() {
         return new MagicBean();
     }
 

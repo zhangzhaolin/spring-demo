@@ -1,8 +1,10 @@
-package main.java.machine;
+package machine;
 
 /**
  * @author shiwa
  */
-interface Machine {
+public interface Machine {
+
+    void play();
 
 }

@@ -1,24 +1,20 @@
-
-
 import org.junit.Rule;
-import org.junit.Test;
 import org.junit.contrib.java.lang.system.SystemOutRule;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import soundsystem.compactdisc.CompactDisc;
 import soundsystem.mediaplayer.MediaPlayer;
-
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 /**
  * @author shiwa
  */
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration(locations = {"classpath:spring-config.xml"})
 public class CDPlayerTest {
 
@@ -32,14 +28,14 @@ public class CDPlayerTest {
     private CompactDisc compactDisc;
 
     @Test
-    public void cdShouldNotBeNull(){
-        assertNotNull(compactDisc);
+    public void cdShouldNotBeNull() {
+        Assertions.assertNotNull(compactDisc);
     }
 
     @Test
-    public void play(){
+    public void play() {
         mediaPlayer.play();
-        assertEquals("Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles",log.getLog());
+        Assertions.assertNotNull("Playing Sgt. Pepper's Lonely Hearts Club Band by The Beatles", log.getLog());
     }
 
 }

@@ -1,4 +1,4 @@
-package main.java.dessert;
+package dessert;
 import org.springframework.context.annotation.ComponentScan;
 
 /**

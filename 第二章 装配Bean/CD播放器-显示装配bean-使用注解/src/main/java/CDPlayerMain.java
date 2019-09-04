@@ -1,15 +1,13 @@
-package main.java;
-
-import main.java.config.CDPlayerConfig;
-import main.java.soundsystem.MediaPlayer;
+import config.CdPlayerConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import soundsystem.MediaPlayer;
 
 public class CDPlayerMain {
 
     public static void main(String[] args) {
 
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(CDPlayerConfig.class);
-        MediaPlayer mediaPlayer =  (MediaPlayer)context.getBean("mediaPlayer");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(CdPlayerConfig.class);
+        MediaPlayer mediaPlayer = (MediaPlayer) context.getBean("mediaPlayer");
         mediaPlayer.play();
     }
 

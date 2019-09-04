@@ -1,28 +1,35 @@
-import org.springframework.context.annotation.ComponentScan;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
-import org.springframework.core.env.Environment;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.core.type.AnnotatedTypeMetadata;
-import org.springframework.core.type.AnnotationMetadata;
-import org.springframework.core.type.MethodMetadata;
+
 
 /**
  * @author shiwa
  */
 
-public class MagicExistsCondition implements Condition{
+public class MagicExistsCondition implements Condition {
 
-    /**
-     * Determine if the condition matches.
-     *
-     * @param context  the condition context
-     * @param metadata metadata of the {@link AnnotationMetadata class}
-     *                 or {@link MethodMetadata method} being checked
-     * @return {@code true} if the condition matches and the component can be registered,
-     * or {@code false} to veto the annotated component's registration
-     */
-    public boolean matches(ConditionContext context , AnnotatedTypeMetadata metadata) {
-        Environment environment = context.getEnvironment();
-        return environment.containsProperty("magic");
+    private static final Logger logger = LogManager.getLogger();
+
+    @Override
+    public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {
+        logger.info("annotatedTypeMetadata.isAnnotated : ");
+        logger.info(annotatedTypeMetadata.isAnnotated(Bean.class.getName()));
+        logger.info(annotatedTypeMetadata.isAnnotated(Conditional.class.getName()));
+        logger.info("annotatedTypeMetadata.getAnnotationAttributes : ");
+        logger.info(annotatedTypeMetadata.getAnnotationAttributes(Bean.class.getName()));
+        logger.info(annotatedTypeMetadata.getAnnotationAttributes(Conditional.class.getName()));
+        logger.info(annotatedTypeMetadata.getAnnotationAttributes(Bean.class.getName(), true));
+        logger.info(annotatedTypeMetadata.getAnnotationAttributes(Conditional.class.getName(), true));
+        logger.info("annotatedTypeMetadata.getAllAnnotationAttributes : ");
+        logger.info(annotatedTypeMetadata.getAllAnnotationAttributes(Bean.class.getName()));
+        logger.info(annotatedTypeMetadata.getAllAnnotationAttributes(Conditional.class.getName()));
+        logger.info(annotatedTypeMetadata.getAllAnnotationAttributes(Bean.class.getName(), true));
+        logger.info(annotatedTypeMetadata.getAllAnnotationAttributes(Conditional.class.getName(), true));
+        return conditionContext.getEnvironment().containsProperty("magic");
     }
 }

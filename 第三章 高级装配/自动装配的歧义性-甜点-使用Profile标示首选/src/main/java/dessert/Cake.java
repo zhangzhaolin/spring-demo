@@ -1,4 +1,4 @@
-package main.java.dessert;
+package dessert;
 
 import org.springframework.stereotype.Component;
 
@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Cake implements Dessert {
 
+    @Override
     public void play() {
         System.out.println("这是 cake");
     }

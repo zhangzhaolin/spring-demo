@@ -1,6 +1,6 @@
-package main.java.machine;
+package machine;
 
-import main.java.dessert.*;
+import dessert.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,11 +14,12 @@ public class DessertMachine implements Machine {
     private Dessert dessert;
 
     @Autowired
-    public void setDessert(Dessert dessert){
+    public void setDessert(Dessert dessert) {
         this.dessert = dessert;
     }
 
-    public void play(){
+    @Override
+    public void play() {
         dessert.play();
     }
 }

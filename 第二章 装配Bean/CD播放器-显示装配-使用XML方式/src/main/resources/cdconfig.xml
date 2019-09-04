@@ -3,12 +3,12 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="mediaPlayer" class="soundsystem.CDPlayer" c:_0-ref="compactDisc">
+    <bean id="mediaPlayer" class="soundsystem.CDPlayer" c:compactDisc-ref="compactDisc">
         <!--<constructor-arg ref="compactDisc"/>-->
     </bean>
 
-    <bean id="compactDisc" class="soundsystem.SgtPeppers" c:_0="寻宝游戏" c:_1="VAE">
-        <constructor-arg>
+    <bean id="compactDisc" class="soundsystem.SgtPeppers" c:title="寻宝游戏" c:_1="VAE">
+        <constructor-arg name="tracks">
             <list>
                 <value>track1</value>
                 <value>track2</value>

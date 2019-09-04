@@ -9,6 +9,7 @@ import org.springframework.core.type.MethodMetadata;
  */
 public class OnMyPropertiesCondition implements Condition {
 
+    @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata metadata) {
         // 获取注解上的name属性
         Object propertiesName = metadata.getAnnotationAttributes(ConditionalOnMyProperties.class.getName()).get("name");

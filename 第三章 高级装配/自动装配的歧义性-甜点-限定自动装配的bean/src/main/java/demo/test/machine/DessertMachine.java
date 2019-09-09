@@ -19,13 +19,15 @@ public class DessertMachine implements Machine {
     private Dessert dessert;
 
     @Autowired
-    @Cold
-    @Creamy
-    public void setDessert(Dessert dessert){
+    // @Cold
+    // @Creamy
+    @Qualifier("iceCream")
+    public void setDessert(Dessert dessert) {
         this.dessert = dessert;
     }
 
-    public void play(){
+    @Override
+    public void play() {
         dessert.play();
     }
 }

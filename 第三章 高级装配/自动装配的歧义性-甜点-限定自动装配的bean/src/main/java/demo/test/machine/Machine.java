@@ -3,6 +3,6 @@ package demo.test.machine;
 /**
  * @author shiwa
  */
-interface Machine {
+public interface Machine {
     void play();
 }

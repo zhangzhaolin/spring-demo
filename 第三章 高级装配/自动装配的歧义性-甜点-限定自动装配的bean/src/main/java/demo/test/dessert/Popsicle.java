@@ -14,7 +14,10 @@ import org.springframework.stereotype.Component;
 @Cold
 @Fruit
 public class Popsicle implements Dessert {
+
+    @Override
     public void play() {
         System.out.println("这是 水果冰棒");
     }
+
 }

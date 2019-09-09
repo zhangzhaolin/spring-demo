@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Cookie implements Dessert {
 
+    @Override
     public void play() {
         System.out.println("这是 cookie");
     }

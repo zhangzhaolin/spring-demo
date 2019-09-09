@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 @Creamy
 public class IceCream implements Dessert {
 
+    @Override
     public void play() {
         System.out.println("这是 IceCream");
     }

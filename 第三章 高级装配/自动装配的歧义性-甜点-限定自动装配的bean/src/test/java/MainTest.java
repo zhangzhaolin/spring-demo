@@ -1,28 +1,27 @@
-package demo.test;
-
 import demo.test.config.ComponentConfig;
 import demo.test.machine.DessertMachine;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import demo.test.machine.Machine;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 
 /**
  * @author shiwa
  */
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = ComponentConfig.class)
 public class MainTest {
 
     @Autowired
-    private DessertMachine dessertMachine;
+    private Machine machine;
 
     @Test
-    public void test(){
-        dessertMachine.play();
+    public void test() {
+        machine.play();
     }
 
 }

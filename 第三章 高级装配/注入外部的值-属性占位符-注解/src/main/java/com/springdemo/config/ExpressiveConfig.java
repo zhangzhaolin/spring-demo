@@ -8,12 +8,6 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 @Configuration
 @ComponentScan(basePackages = "com.springdemo")
-@PropertySource(value = "classpath:/app.properties")
 public class ExpressiveConfig {
-
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer placeholderConfigurer(){
-        return new PropertySourcesPlaceholderConfigurer();
-    }
 
 }

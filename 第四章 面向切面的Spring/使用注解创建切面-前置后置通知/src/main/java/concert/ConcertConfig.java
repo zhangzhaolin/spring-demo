@@ -1,21 +1,12 @@
 package concert;
 
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
-@EnableAspectJAutoProxy
 @Configuration
+@ComponentScan
+@EnableAspectJAutoProxy
 public class ConcertConfig {
-
-    @Bean
-    public Audience audience(){
-        return new Audience();
-    }
-
-    @Bean
-    public MusicPerformance musicPerformance(){
-        return new MusicPerformance();
-    }
 
 }

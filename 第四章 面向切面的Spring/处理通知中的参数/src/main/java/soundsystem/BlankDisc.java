@@ -1,6 +1,8 @@
 package soundsystem;
 
 
+import org.springframework.aop.framework.AopContext;
+
 import java.util.List;
 
 public class BlankDisc implements CompactDisc {
@@ -9,7 +11,7 @@ public class BlankDisc implements CompactDisc {
     private String artist;
     private List<String> tracks;
 
-    public BlankDisc(String title,String artist,List<String> tracks) {
+    public BlankDisc(String title, String artist, List<String> tracks) {
         this.title = title;
         this.artist = artist;
         this.tracks = tracks;
@@ -27,14 +29,16 @@ public class BlankDisc implements CompactDisc {
         return tracks;
     }
 
+    @Override
     public void play() {
-        System.out.println("title :" + title + " artist :" + artist);
-        for (int trackNumber = 0;trackNumber < tracks.size();trackNumber ++){
-            playTrack(trackNumber);
+        for (int trackNumber = 0; trackNumber < tracks.size(); trackNumber++) {
+            // ! playTrack(trackNumber);
+            ((CompactDisc) (AopContext.currentProxy())).playTrack(trackNumber);
         }
     }
 
+    @Override
     public void playTrack(int trackNumber) {
-        System.out.println("track "+ trackNumber + " : " + tracks.get(trackNumber));
+        System.out.println("track " + trackNumber + " : " + tracks.get(trackNumber));
     }
 }

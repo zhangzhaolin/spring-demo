@@ -6,8 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
 
     public static void main(String[] args) {
-        // AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConcertConfig.class);
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConcertConfig.class);
         Performance musicPerformance = (Performance) context.getBean("musicPerformance");
         musicPerformance.perform();
     }

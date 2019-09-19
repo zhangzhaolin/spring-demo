@@ -1,34 +1,34 @@
 package soundsystem;
 
-import jdk.nashorn.internal.ir.JoinPredecessor;
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author zhang
+ */
 @Aspect
 @Component
-@EnableAspectJAutoProxy
 public class TrackCounter {
 
-    public Map<Integer,Integer> trackCounts = new HashMap<Integer, Integer>();
+    public Map<Integer, Integer> trackCounts = new HashMap<>();
 
-    // 通知playTrack方法
-    @Pointcut("execution(public * soundsystem.BlankDisc.playTrack(int)) && args(trackNumber))")
-    public void trackPlayed(int trackNumber){}
-
-    @AfterReturning("trackPlayed(trackNumber)")
-    public void countTrack(int trackNumber){
-        trackCounts.put(trackNumber,getPlayCount(trackNumber) + 1);
-        System.out.println("--->track " + trackNumber + "数量增加了.");
+    @Pointcut("execution(* soundsystem.BlankDisc.playTrack(int))  && args(trackNumber)")
+    public void trackedPlay(int trackNumber) {
     }
 
+    @AfterReturning(value = "trackedPlay(trackNumber)", argNames = "trackNumber")
+    public void countTrack(int trackNumber) {
+        trackCounts.compute(trackNumber, (k, v) -> v == null ? 1 : v + 1);
+        System.out.println(trackCounts);
+    }
 
-    public int getPlayCount(int trackNumber){
-        return trackCounts.containsKey(trackNumber)?
-                trackCounts.get(trackNumber):0;
+    public int getPlayCount(int trackNumber) {
+        return trackCounts.getOrDefault(trackNumber, 0);
     }
 }

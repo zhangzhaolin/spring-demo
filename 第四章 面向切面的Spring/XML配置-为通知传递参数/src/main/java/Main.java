@@ -8,11 +8,12 @@ public class Main {
 
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
-        CompactDisc compactDisc = (CompactDisc)context.getBean("blankDisc");
-        TrackCounter trackCounter = (TrackCounter)context.getBean("trackCounter");
+        CompactDisc compactDisc = (CompactDisc) context.getBean("blankDisc");
+        TrackCounter trackCounter = (TrackCounter) context.getBean("trackCounter");
         compactDisc.playTrack(0);
         compactDisc.playTrack(0);
         compactDisc.playTrack(1);
+        compactDisc.play();
         System.out.println(trackCounter.getPlayCount(0));
         System.out.println(trackCounter.getPlayCount(1));
     }

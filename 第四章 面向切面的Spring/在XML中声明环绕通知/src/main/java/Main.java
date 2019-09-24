@@ -5,7 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
-        Performance performance = (Performance) context.getBean("musicPerformance");
+        Performance performance = (Performance) context.getBean("performance");
         performance.perform();
     }
 }

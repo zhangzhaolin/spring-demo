@@ -20,9 +20,10 @@ public class JdbcSpittleRepository implements SpittleRepository {
         this.jdbcOperations = jdbcOperations;
     }
 
+    @Override
     public List<Spittle> findSpittles(long max , int count) {
         return jdbcOperations.query("SELECT * FROM spittle WHERE ID < ? ORDER BY created_at desc LIMIT ?" ,
-               new SpittleRowMap() , max , count);
+                new SpittleRowMap(), max , count);
     }
 
     @Override
@@ -31,7 +32,7 @@ public class JdbcSpittleRepository implements SpittleRepository {
                 new SpittleRowMap(),spittleId);
     }
 
-    private class SpittleRowMap implements RowMapper<Spittle>{
+    private static class SpittleRowMap implements RowMapper<Spittle>{
         @Override
         public Spittle mapRow(ResultSet rs , int rowNum) throws SQLException {
             return new Spittle(

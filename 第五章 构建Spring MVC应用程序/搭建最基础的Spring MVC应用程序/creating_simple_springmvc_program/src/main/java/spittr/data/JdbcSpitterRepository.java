@@ -39,7 +39,7 @@ public class JdbcSpitterRepository implements SpitterRepository {
                 new SpitterRowMap(),username);
     }
 
-    private class SpitterRowMap implements RowMapper<Spitter>{
+    private static class SpitterRowMap implements RowMapper<Spitter>{
 
         @Override
         public Spitter mapRow(ResultSet resultSet , int i) throws SQLException {

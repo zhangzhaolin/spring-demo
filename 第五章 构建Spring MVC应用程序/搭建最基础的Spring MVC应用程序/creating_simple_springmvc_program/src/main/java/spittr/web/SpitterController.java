@@ -1,6 +1,8 @@
 package spittr.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataRetrievalFailureException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -25,18 +27,23 @@ public class SpitterController {
     }
 
     @GetMapping(value = "/register")
-    public String showRegisterForm() {
+    public String showRegisterForm(Model model) {
+        model.addAttribute(new Spitter());
         return "register";
     }
 
     @PostMapping(value = "/register")
-    @ResponseBody
-    public JsonUtils processRegisteration(@Valid Spitter spitter, Errors error) {
+    public String processRegisteration(@Valid Spitter spitter, Errors error) {
         if (error.hasErrors()) {
-            return new JsonUtils(ResultEnum.ERROR, "", error.getAllErrors());
+            return "/register";
         }
-        spitterRepository.save(spitter);
-        return new JsonUtils(ResultEnum.SUCCESS, "", spitter.getUserName());
+        try {
+            spitterRepository.save(spitter);
+        } catch (DataRetrievalFailureException exception) {
+            error.rejectValue("userName", "500", "用户名已存在");
+            return "/register";
+        }
+        return "redirect:/spitter/user/" + spitter.getUserName();
     }
 
     @GetMapping(value = "/user/{username}")

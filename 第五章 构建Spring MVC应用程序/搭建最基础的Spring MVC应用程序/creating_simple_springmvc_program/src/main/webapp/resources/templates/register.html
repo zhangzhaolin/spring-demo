@@ -25,22 +25,28 @@
 
 <body>
 <div class="ui text container">
-    <form class="ui form" style="padding-top: 5%;" th:action="@{/spitter/register}" method="post">
-        <div class="field">
+    <!--/*@thymesVar id="spitter" type="spittr.pojo.Spitter"*/-->
+    <form class="ui form" style="padding-top: 5%;" th:action="@{/spitter/register}" th:object="${spitter}"
+          method="post">
+        <div th:class="${#fields.hasErrors('firstName')} ? 'field error':'field'">
             <label>姓氏</label>
-            <input type="text" name="firstName" placeholder="姓氏">
+            <input type="text" th:field="*{firstName}"
+                   placeholder="姓氏">
         </div>
-        <div class="field">
+        <div th:class="${#fields.hasErrors('lastName')} ? 'field error':'field'">
             <label>名称</label>
-            <input type="text" name="lastName" placeholder="名称">
+            <input type="text" th:field="*{lastName}"
+                   placeholder="名称">
         </div>
-        <div class="field">
+        <div th:class="${#fields.hasErrors('userName')} ? 'field error':'field'">
             <label>用户名</label>
-            <input type="text" name="userName" placeholder="用户名">
+            <input type="text" th:field="*{userName}"
+                   placeholder="用户名">
         </div>
-        <div class="field">
+        <div th:class="${#fields.hasErrors('passWord')} ? 'field error':'field'">
             <label>密码</label>
-            <input type="password" name="passWord" placeholder="密码" autocomplete="">
+            <input type="password" th:field="*{passWord}"
+                   placeholder="密码">
         </div>
         <div class="field">
             <div class="ui checkbox">
@@ -48,11 +54,16 @@
                 <label>我同意本条款和条件</label>
             </div>
         </div>
-        <div class="ui error message">
-
-        </div>
         <div class="ui primary button" id="submit">提交</div>
+        <div class="ui error message" th:if="${#fields.hasErrors()}"
+             th:style="${#fields.hasErrors() == true ? 'display:block' : ''}">
+            <ul class="list">
+                <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+            </ul>
+        </div>
     </form>
+
+    <a th:href="@{/}">返回首页</a>
 </div>
 
 </body>

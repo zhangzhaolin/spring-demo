@@ -15,12 +15,12 @@ import java.sql.SQLException;
 
 @Configuration
 @PropertySource("classpath:/application.properties")
-public class DataConfig {
+public class DataBaseConfiguration {
 
     private final Environment environment;
 
     @Autowired
-    public DataConfig(Environment environment) {
+    public DataBaseConfiguration(Environment environment) {
         this.environment = environment;
     }
 
@@ -39,7 +39,7 @@ public class DataConfig {
     }
 
     @Bean
-    public JdbcOperations jdbcOperations(DataSource dataSource){
+    public JdbcOperations jdbcOperations(DataSource dataSource) {
         return new JdbcTemplate(dataSource);
     }
 

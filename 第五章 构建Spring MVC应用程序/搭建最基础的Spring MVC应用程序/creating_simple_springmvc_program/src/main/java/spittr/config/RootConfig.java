@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
-@Import({DataConfig.class})
+@Import({DataBaseConfiguration.class})
 @ComponentScan(basePackages = {"spittr"} ,
     excludeFilters = {
         @ComponentScan.Filter(type = FilterType.ANNOTATION , value = EnableWebMvc.class)

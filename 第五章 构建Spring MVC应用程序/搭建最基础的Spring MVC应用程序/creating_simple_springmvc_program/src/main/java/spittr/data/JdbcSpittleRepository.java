@@ -22,7 +22,7 @@ public class JdbcSpittleRepository implements SpittleRepository {
 
     @Override
     public List<Spittle> findSpittles(long max , int count) {
-        return jdbcOperations.query("SELECT * FROM spittle WHERE ID < ? ORDER BY created_at desc LIMIT ?" ,
+        return jdbcOperations.query("SELECT * FROM spittle WHERE ID < ? ORDER BY created_at LIMIT ?" ,
                 new SpittleRowMap(), max , count);
     }
 

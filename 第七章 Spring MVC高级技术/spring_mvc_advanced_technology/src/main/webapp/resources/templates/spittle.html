@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--jquery-->
+    <script th:src="@{/resources/static/base/jquery.min.js}" type="text/javascript"></script>
+    <!--ajax-->
+    <script th:src="@{/resources/static/base/axios.min.js}"></script>
+    <!--semantic ui-->
+    <link th:href="@{/resources/static/base/font.css}" type="text/css" rel="stylesheet"/>
+    <script th:src="@{/resources/static/semantic/semantic.min.js}" type="text/javascript"></script>
+    <link th:href="@{/resources/static/semantic/semantic.min.css}" type="text/css" rel="stylesheet"/>
+    <script th:inline="javascript">
+        var path = /*[[@{/}]]*/ "";
+
+        function goback() {
+            window.location.href = path + "spittles";
+        }
+    </script>
+</head>
+<body>
+<!--/*@thymesVar id="spittle" type="spittr.pojo.Spittle"*/-->
+<div class="ui text container">
+
+    <div class="ui grid" id="spittle" style="padding-top: 5%;">
+        <div class="row">
+            <th:block th:text="${spittle.message}"/>
+        </div>
+        <div class="row">
+            <th:block th:text="${#dates.format(spittle.time,'YYYY-MM-dd')}"/>
+        </div>
+        <div class="row">
+            <div class="ui button" th:onclick="|goback()|">返回列表</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

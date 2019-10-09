@@ -34,7 +34,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "spittr.web")
+@ComponentScan(basePackages = {"spittr.web","spittr.handler"})
 @PropertySource("classpath:/application.properties")
 public class WebConfig implements WebMvcConfigurer {
 

@@ -2,10 +2,12 @@ package spittr.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import spittr.data.SpittleRepository;
+import spittr.exception.SpittleNotFoundException;
 import spittr.pojo.Spitter;
 import spittr.pojo.Spittle;
 import spittr.util.JsonUtils;
@@ -37,7 +39,11 @@ public class SpittleController {
 
     @GetMapping(value = "/show/{spittleId}")
     public String spittlePost(@PathVariable Long spittleId, Model model) {
-        model.addAttribute("spittle", spittleRepository.findSpittle(spittleId));
+        try {
+            model.addAttribute("spittle", spittleRepository.findSpittle(spittleId));
+        } catch (DataAccessException exception) {
+            throw new SpittleNotFoundException("Spittle没有找到");
+        }
         return "spittle";
     }
 

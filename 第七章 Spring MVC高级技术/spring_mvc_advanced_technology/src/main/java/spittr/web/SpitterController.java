@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import spittr.data.SpitterRepository;
 import spittr.pojo.Spitter;
 
@@ -45,7 +46,7 @@ public class SpitterController {
     }
 
     @PostMapping(value = "/register")
-    public String processRegisteration(@RequestPart(value = "image") MultipartFile imageFile, @Valid Spitter spitter, Errors error) throws IOException {
+    public String processRegisteration(@RequestPart(value = "image") MultipartFile imageFile, @Valid Spitter spitter, Errors error, RedirectAttributes model) throws IOException {
         if (error.hasErrors()) {
             return "/register";
         }
@@ -65,13 +66,18 @@ public class SpitterController {
             imageFile.transferTo(new File(uploadPath + absolutePath));
         }
 
-        spitterRepository.save(spitter);
-        return "redirect:/spitter/user/" + URLEncoder.encode(spitter.getUserName(), "UTF-8");
+        spitter = spitterRepository.save(spitter);
+        model.addAttribute("username", spitter.getUserName());
+        model.addFlashAttribute("spitter", spitter);
+        // model.addAttribute("id", spitter.getId());
+        return "redirect:/spitter/user/{username}";
     }
 
     @GetMapping(value = "/user/{username}")
     public String showSpitterProfile(@PathVariable String username, Model model) {
-        model.addAttribute("spitter", spitterRepository.findOneByUserName(username));
+        if (!model.containsAttribute("spitter")) {
+            model.addAttribute("spitter", spitterRepository.findOneByUserName(username));
+        }
         return "profile";
     }
 

@@ -1,6 +1,7 @@
 package spittr.data;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -27,7 +28,7 @@ public class JdbcSpittleRepository implements SpittleRepository {
     }
 
     @Override
-    public Spittle findSpittle(Long spittleId) {
+    public Spittle findSpittle(Long spittleId) throws DataAccessException {
         return jdbcOperations.queryForObject("SELECT * FROM spittle WHERE id = ?",
                 new SpittleRowMap(),spittleId);
     }
